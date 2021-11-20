@@ -1,0 +1,60 @@
+﻿@model IEnumerable<PruebaNoelOrtiz.Persona>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<h2>Inicio</h2>
+
+<p>
+    @Html.ActionLink("Crear nueva persona", "Create")
+</p>
+
+
+
+<table class="table table-sm">
+  <caption>Lista de personas</caption>
+
+    <tr>
+        <th>
+            @Html.DisplayName("Id")
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayName("Fecha de Nacimiento")
+        </th>
+        <th></th>
+    </tr>
+
+    
+    @foreach (var item in Model)
+    
+    {
+         
+        <tr>
+            <td>
+                @Html.DisplayFor(ModelItem => item.Id)
+                </td>
+            <td scope="row">
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaDeNacimiento)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+
+
+            
+        }
+
+</table>
